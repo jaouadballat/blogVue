@@ -1,26 +1,21 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueResource from 'vue-resource'
-import vueRouter from 'vue-router'
-import showBlogs from './components/showBlogs.vue'
-import addBlog from './components/addBlog.vue'
-//import Routes from './routes'
+import VueRouter from 'vue-router'
+import routes from './routes'
 
 Vue.use(VueResource)
-Vue.use(vueRouter)
+Vue.use(VueRouter)
 
-const router = new vueRouter({
-	routes : [
-		{path:"/", component:showBlogs},
-		{path:"/add", component:addBlog}
-	]
+const router = new VueRouter({
+	routes:routes,
+	mode:'history'
 })
-
 
 new Vue({
   el: '#app',
   render: h => h(App),
-  router:router
+  router: router
 })
 
 	
